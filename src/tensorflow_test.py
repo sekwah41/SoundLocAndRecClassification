@@ -1,3 +1,8 @@
+
+# To disable gpu if wanted
+import os
+os.environ["CUDA_VISIBLE_DEVICES"] = "-1"
+
 import tensorflow as tf
 
 print("CPU's:", tf.config.list_physical_devices('CPU'))
