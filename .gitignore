@@ -1,4 +1,6 @@
 /venv/
 /src/.ipynb_checkpoints/
+/src/train_model.py
+/src/preprocess_data.py
 
 *.pyc
