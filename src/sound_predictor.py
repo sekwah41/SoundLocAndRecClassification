@@ -33,7 +33,8 @@ def prediction(file_name, print_data = False):
         for i in range(len(predicted_proba)):
             category = le.inverse_transform(np.array([i]))
             print(category[0], "\t\t : ", format(predicted_proba[i], '.32f') )
-    return (predicted_class[0], format(predicted_proba[predicted_vector[0]] * 100, '.32f'))
+    #return (predicted_class[0], format(predicted_proba[predicted_vector[0]] * 100, '.32f'))
+    return (predicted_class, predicted_proba, predicted_vector, label_names)
 
 def load_sound_model(model_loc):
     global model
@@ -61,6 +62,8 @@ label_encoder_file = "labelencoder.pkl"
 
 with open(label_encoder_file, 'rb') as file:
     le = pickle.load(file)
+
+label_names = le.classes_
 
 num_labels = len(le.classes_)
 

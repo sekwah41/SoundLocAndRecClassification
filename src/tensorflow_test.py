@@ -23,7 +23,7 @@ filename = usl + 'audio/fold5/100852-0-0-0.wav'
 
 sound_predictor.load_sound_model('sound_category_model.h5')
 start = datetime.now()
-for i in range(0, 400):
+for i in range(0, 100):
     sound_predictor.prediction(filename, True)
 duration = datetime.now() - start
 print("Test 100: ", duration)
