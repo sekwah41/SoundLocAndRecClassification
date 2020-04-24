@@ -9,6 +9,7 @@ Self recorded sounds which are not referenced.
 # Structure of samples
 /resources/UrbanSounds8k/
 
+/resources/CustomSounds/{class_string}
 
 # Sources
 This code is partially based on [this article](https://medium.com/@mikesmales/sound-classification-using-deep-learning-8bc2aa1990b7)
