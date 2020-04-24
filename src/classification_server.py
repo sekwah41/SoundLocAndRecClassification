@@ -1,5 +1,7 @@
 
 # Not a great framework but helpful for what we need
+from datetime import datetime
+
 from flask import Flask, jsonify, request, render_template
 app = Flask(__name__)
 
@@ -24,11 +26,13 @@ def predict():
             print('Making predictions')
             print(json['file_loc'])
             try:
+                date = datetime.now()
                 predicted_class, predicted_proba, predicted_vector, label_names =\
                     sound_predictor.prediction(json['file_loc'], False)
                 probability = {}
                 for i in range(len(label_names)):
                     probability[label_names[i]] = str(predicted_proba[i])
+                print(datetime.now() - date)
                 return jsonify({
                     'predicted_classes': predicted_class.tolist(),
                     'probabilities': probability

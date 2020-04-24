@@ -6,6 +6,9 @@ SoundLocAndRecClassification
 Self recorded sounds which are not referenced.
 
 
+# Split longer sounds into shorter samples
+`ffmpeg -i somefile.mp3 -f segment -segment_time (seconds) -c copy out%03d.mp3`
+
 # Structure of samples
 /resources/UrbanSounds8k/
 
