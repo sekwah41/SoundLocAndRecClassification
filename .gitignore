@@ -2,5 +2,7 @@
 /src/.ipynb_checkpoints/
 /src/train_model.py
 /src/preprocess_data.py
-
 *.pyc
+/.idea/
+*.pkl
+*.h5
