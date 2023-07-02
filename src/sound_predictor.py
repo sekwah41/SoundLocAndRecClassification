@@ -3,6 +3,7 @@ import librosa.display
 import numpy as np
 import tensorflow as tf
 from keras.models import load_model
+import pickle
 
 compute_device = None
 
@@ -56,7 +57,7 @@ def extract_features(file_name):
     return mfccs
 
 # Load model and label encoder
-sound_model_file = "sound_category_model.h5"
+sound_model_file = "sound_category_model"
 label_encoder_file = "labelencoder.pkl"
 
 with open(label_encoder_file, 'rb') as file:

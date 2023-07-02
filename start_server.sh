@@ -1,4 +1,4 @@
 #!/bin/bash
 
 cd src || exit
-python3.7 classification_server.py
+python classification_server.py

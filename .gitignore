@@ -6,3 +6,5 @@
 /.idea/
 *.pkl
 *.h5
+/src/sound_category_model/
+*.tflite

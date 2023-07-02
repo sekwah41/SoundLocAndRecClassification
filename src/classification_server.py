@@ -8,7 +8,7 @@ app = Flask(__name__)
 import sound_predictor
 import numpy as np
 
-sound_predictor.load_sound_model('sound_category_model.h5')
+sound_predictor.load_sound_model('sound_category_model')
 
 # Example payload to air conditioning sample
 # {
