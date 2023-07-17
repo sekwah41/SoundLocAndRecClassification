@@ -55,7 +55,7 @@ jupyter notebook --allow-root
 # Though you may want to filter out most of the packages that are not explicitly needed for this project or are already provided
 # Though this may clash/have issues if you have updated the tensorflow docker image e.g. above 2.12.0
 python3 -m pip install --upgrade pip
-apt updated
+apt update
 apt upgrade
 apt-get install -y libsndfile1 graphviz
 pip install -r requirements.txt
