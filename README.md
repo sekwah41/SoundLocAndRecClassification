@@ -6,8 +6,36 @@ SoundLocAndRecClassification
 Self recorded sounds which are not referenced.
 https://www.kaggle.com/datasets/chrisfilo/urbansound8k
 
+As of writing this works with python 3.8
 
-# Running gpu accelerated
+# Runing GPU accelerated
+
+## Mac
+Just follow the instructions at this link
+https://developer.apple.com/metal/tensorflow-plugin/
+
+But just as a quick guide, as long as pip is up to date, we currently use tensorflow 2.12
+```bash
+brew install python@3.10
+
+# Env setup
+python3.10 -m venv ~/venv-metal
+source ~/venv-metal/bin/activate
+python -m pip install -U pip
+
+# Install mac stuffs
+
+brew install pkg-config
+brew install dbus
+brew install gobject-introspection
+brew install pygobject3
+
+
+pip install -r requirements.txt
+python -m pip install tensorflow-metal
+```
+
+## Nvidia (should be similar on windows and linux)
 I've added this section as I wanted to tinker with this again after some time but found it a LOT harder to get it properly running again due to needing specific versions of different libraries and packages.
 
 Luckily this isn't too crazily optimised for with the GPU though at least on my setup it will cut the time down to about a quarter.
@@ -58,6 +86,8 @@ python3 -m pip install --upgrade pip
 apt update
 apt upgrade
 apt-get install -y libsndfile1 graphviz
+pip install python-apt==2.0.1+ubuntu0.20.4.1
+pip install PyGObject==3.36.0
 pip install -r requirements.txt
 
 # The main libraries that should be needed or work as of writing this are
