@@ -29,6 +29,7 @@ brew install pkg-config
 brew install dbus
 brew install gobject-introspection
 brew install pygobject3
+brew install libsndfile
 
 
 pip install -r requirements.txt
