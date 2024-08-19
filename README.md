@@ -27,6 +27,8 @@ Most of the instructions seem to be mostly based for ubuntu so if you want the e
 Then these commands should allow you to get a environment that has tensorflow and jupyter installed with GPU acceleration.
 
 On arch https://aur.archlinux.org/packages/nvidia-docker will help.
+#
+
 
 ```bash
 # These notes are just for myself as well as anyone who may be less experienced with docker for easier setup
@@ -34,7 +36,8 @@ On arch https://aur.archlinux.org/packages/nvidia-docker will help.
 docker pull tensorflow/tensorflow:2.12.0-gpu-jupyter
 
 # Use this to run the project with GPU support
-docker run --name soundloc --net="host" --gpus all -v $PWD:/soundloc -w /soundloc -it -p 8888:8888 tensorflow/tensorflow:2.12.0-gpu-jupyter bash
+# On windows you will need to go into settings and enable "Enable host networking"
+docker run --name soundloc --net="host" --gpus all -v ${PWD}:/soundloc -w /soundloc -it tensorflow/tensorflow:2.12.0-gpu-jupyter bash
 
 # To get back into the existing container as it'll stop when you exit
 docker start -ia soundloc
@@ -46,8 +49,7 @@ docker exec -it soundloc bash
 python3 -c "import tensorflow as tf; print(tf.config.list_physical_devices('GPU'))"
 
 # AS the user inside docker is root youll need to run, if anyone knows a better way to do this please let me know
-jupyter notebook --allow-root
-
+jupyter notebook --ip=0.0.0.0 --no-browser --allow-root
 ```
 
 ```bash
@@ -57,7 +59,7 @@ jupyter notebook --allow-root
 python3 -m pip install --upgrade pip
 apt update
 apt upgrade
-apt-get install -y libsndfile1 graphviz
+apt-get install -y libsndfile1 graphviz libcairo2-dev
 pip install -r requirements.txt
 
 # The main libraries that should be needed or work as of writing this are
